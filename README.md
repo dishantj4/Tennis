@@ -20,6 +20,7 @@ This is an Practice program to showcase Test Driven Development
 
 ````
 -Should return game score as "Love All" when both player are at zero points
+-Should return game score as "Fifteen Love" when player one wins first point
 ````
 
 # Prerequisite:
