@@ -16,6 +16,35 @@ If the player with advantage wins the ball he wins that game. If the player with
 # Purpose
 This is an Practice program to showcase Test Driven Development
 
+# Functional Case:
+
+````
+-Should return game score as "Love All" when both player are at zero points
+````
+
+# Prerequisite:
+
+````
+Jdk 1.7 or above
+IDE (Eclipse or Intellij)
+Maven 3.0
+````
+
+# How to run this App
+
+Follow below instructions to run this app
+````
+-git clone https://github.com/dishantj4/Tennis.git
+-Go to src/test/java/com/kata/TennisGameTest.java and run the Junit Test case or run below maven command.
+
+$ mvn clean test
+
+````
+
+# Code Coverage
+
+View Code Coverage Report at ‘target/site/jacoco/index.html’
+
 
 
 
