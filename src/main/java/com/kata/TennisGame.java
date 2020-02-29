@@ -12,14 +12,30 @@ public class TennisGame
     }
 
     public String getScore() {
-        
-        String score = null;
 
-        if(playerOne.pointScore == 0 && playerTwo.pointScore == 0)
-            score = "Love All";
-        if(playerOne.pointScore == 1 && playerTwo.pointScore == 0)
-            score = "Fifteen Love";
-            
-        return score;
+        if(playerOne.pointScore == playerTwo.pointScore)
+            return translateScore(playerOne.pointScore) + " All";
+        return translateScore(playerOne.pointScore) + " " + translateScore(playerTwo.pointScore);
+    }
+
+    private TennisPoints translateScore(int pointScore) {
+        switch (pointScore) {
+            case 3:
+                return TennisPoints.Forty;
+            case 2:
+                return TennisPoints.Thirty;
+            case 1:
+                return TennisPoints.Fifteen;
+            case 0:
+                return TennisPoints.Love;
+        }
+        throw new IllegalArgumentException("Illegal pointScore: " + pointScore);
+    }
+
+    public enum TennisPoints{
+        Love,
+        Fifteen,
+        Thirty,
+        Forty
     }
 }
