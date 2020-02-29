@@ -15,6 +15,8 @@ public class TennisGame
 
         if(playerOne.pointScore == playerTwo.pointScore)
             return translateScore(playerOne.pointScore) + " All";
+        if(playerOne.pointScore > 3 && playerOne.pointScore > playerTwo.pointScore + 1 )
+            return "Player One Wins";
         return translateScore(playerOne.pointScore) + " " + translateScore(playerTwo.pointScore);
     }
 

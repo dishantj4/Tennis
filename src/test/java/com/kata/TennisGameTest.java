@@ -36,4 +36,12 @@ public class TennisGameTest
         assertEquals("Fifteen Love",game.getScore());
     }
 
+    @Test
+    public void ShouldReturnGameScoreAsPlayerOneWinsWhenPlayerOneWins4AndPlayerTwoWins2Points()
+    {
+        playerOne.pointScore =4;
+        playerTwo.pointScore =2;
+        assertEquals("Player One Wins",game.getScore());
+    }
+
 }
