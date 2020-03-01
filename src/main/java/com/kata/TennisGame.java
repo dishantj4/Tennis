@@ -24,19 +24,23 @@ public class TennisGame
     }
 
     private Boolean hasWinner(){
-        return playerOne.pointScore > 3 && playerOne.pointScore > playerTwo.pointScore + 1;
+        return hasPointScoreMoreThanForty() && playerOne.pointScore > playerTwo.pointScore + 1;
     }
 
     private Boolean IsDeuce(){
-        return playerOne.pointScore >= 3 && playerOne.pointScore == playerTwo.pointScore ;
+        return playerOne.pointScore >= 3 && hasEqualPointScore() ;
     }
 
     private Boolean hasAdvantage(){
-        return playerOne.pointScore >= 3 && playerOne.pointScore > playerTwo.pointScore ;
+        return hasPointScoreMoreThanForty() && playerOne.pointScore > playerTwo.pointScore ;
     }
 
     private Boolean hasEqualPointScore(){
         return playerOne.pointScore == playerTwo.pointScore ;
+    }
+
+    private Boolean hasPointScoreMoreThanForty(){
+        return playerOne.pointScore > 3 ;
     }
 
     private TennisPoints translateScore(int pointScore) {
@@ -53,10 +57,4 @@ public class TennisGame
         throw new IllegalArgumentException("Illegal pointScore: " + pointScore);
     }
 
-    public enum TennisPoints{
-        Love,
-        Fifteen,
-        Thirty,
-        Forty
-    }
 }
