@@ -13,13 +13,25 @@ public class TennisGame
 
     public String getScore() {
 
-        if(playerOne.pointScore > 3 && playerOne.pointScore > playerTwo.pointScore + 1 )
-            return "Player One Wins";
-        if(playerOne.pointScore >= 3 && playerOne.pointScore == playerTwo.pointScore )
+        if(IsDeuce())
             return "Deuce";
-        if(playerOne.pointScore == playerTwo.pointScore)
+        if(hasEqualPointScore())
             return translateScore(playerOne.pointScore) + " All";
+        if(hasWinner() )
+            return "Player One Wins";
         return translateScore(playerOne.pointScore) + " " + translateScore(playerTwo.pointScore);
+    }
+
+    private Boolean hasWinner(){
+        return playerOne.pointScore > 3 && playerOne.pointScore > playerTwo.pointScore + 1;
+    }
+
+    private Boolean IsDeuce(){
+        return playerOne.pointScore >= 3 && playerOne.pointScore == playerTwo.pointScore ;
+    }
+
+    private Boolean hasEqualPointScore(){
+        return playerOne.pointScore == playerTwo.pointScore ;
     }
 
     private TennisPoints translateScore(int pointScore) {
