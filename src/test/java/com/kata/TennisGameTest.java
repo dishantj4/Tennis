@@ -44,4 +44,12 @@ public class TennisGameTest
         assertEquals("Player One Wins",game.getScore());
     }
 
+    @Test
+    public void ShouldReturnGameScoreAsDeuceWhenBothThePlayersScore3points()
+    {
+        playerOne.pointScore =3;
+        playerTwo.pointScore =3;
+        assertEquals("Deuce",game.getScore());
+    }
+
 }

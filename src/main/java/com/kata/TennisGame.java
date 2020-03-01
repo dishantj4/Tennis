@@ -13,10 +13,12 @@ public class TennisGame
 
     public String getScore() {
 
-        if(playerOne.pointScore == playerTwo.pointScore)
-            return translateScore(playerOne.pointScore) + " All";
         if(playerOne.pointScore > 3 && playerOne.pointScore > playerTwo.pointScore + 1 )
             return "Player One Wins";
+        if(playerOne.pointScore >= 3 && playerOne.pointScore == playerTwo.pointScore )
+            return "Deuce";
+        if(playerOne.pointScore == playerTwo.pointScore)
+            return translateScore(playerOne.pointScore) + " All";
         return translateScore(playerOne.pointScore) + " " + translateScore(playerTwo.pointScore);
     }
 
