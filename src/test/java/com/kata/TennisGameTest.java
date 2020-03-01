@@ -52,4 +52,12 @@ public class TennisGameTest
         assertEquals("Deuce",game.getScore());
     }
 
+    @Test
+    public void ShouldReturnGameScoreAsPlayerOneAdvantageWhenPlayerOneScoresPointPostDeuce()
+    {
+        playerOne.pointScore =4;
+        playerTwo.pointScore =3;
+        assertEquals("Player One Advantage",game.getScore());
+    }
+
 }

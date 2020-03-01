@@ -23,6 +23,7 @@ This is an Practice program to showcase Test Driven Development
 -Should return game score as "Fifteen Love" when player one wins first point
 -Should return game score as "Player One Wins"  when player one wins 4 and player two wins 2 points
 -Should return game score as "Deuce" when at least three points have been scored by each player, and the scores are equal
+-Should return game score as "Player One Advantage" when  player one scores one point post deuce
 
 ````
 
