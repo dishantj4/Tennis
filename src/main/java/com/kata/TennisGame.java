@@ -18,8 +18,10 @@ public class TennisGame
             return "Player Two Wins";
         if(IsDeuce())
             return "Deuce";
-        if(hasAdvantage() )
+        if(playerOneHasAdvantage() )
             return "Player One Advantage";
+        if(playerTwoHasAdvantage() )
+            return "Player Two Advantage";
         if(hasEqualPointScore())
             return translateScore(playerOne.pointScore) + " All";
         return translateScore(playerOne.pointScore) + " " + translateScore(playerTwo.pointScore);
@@ -37,8 +39,12 @@ public class TennisGame
         return playerOne.pointScore >= 3 && hasEqualPointScore() ;
     }
 
-    private Boolean hasAdvantage(){
+    private Boolean playerOneHasAdvantage(){
         return hasPointScoreMoreThanForty() && playerOne.pointScore > playerTwo.pointScore ;
+    }
+
+    private Boolean playerTwoHasAdvantage(){
+        return hasPointScoreMoreThanForty() && playerOne.pointScore < playerTwo.pointScore ;
     }
 
     private Boolean hasEqualPointScore(){
