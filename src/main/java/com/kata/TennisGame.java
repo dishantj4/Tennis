@@ -12,20 +12,17 @@ public class TennisGame
     }
 
     public String getScore() {
-        if(playerOneIsWinner() )
-            return "Player One Wins";
-        if(playerTwoIsWinner() )
-            return "Player Two Wins";
-        if(IsDeuce())
-            return "Deuce";
-        if(playerOneHasAdvantage() )
-            return "Player One Advantage";
-        if(playerTwoHasAdvantage() )
-            return "Player Two Advantage";
+        if(hasWinner() )
+            return winnerPlayerName() + " " + TennisPoints.Wins;
+        if(isDeuce())
+            return "" + TennisPoints.Deuce;
+        if(hasAdvantage() )
+            return advantagePlayerName() + " " + TennisPoints.Advantage;
         if(hasEqualPointScore())
             return translateScore(playerOne.pointScore) + " All";
         return translateScore(playerOne.pointScore) + " " + translateScore(playerTwo.pointScore);
     }
+
 
     private Boolean playerOneIsWinner(){
         return hasPointScoreMoreThanForty() && playerOne.pointScore > playerTwo.pointScore + 1;
@@ -35,7 +32,19 @@ public class TennisGame
         return hasPointScoreMoreThanForty() && playerTwo.pointScore > playerOne.pointScore + 1;
     }
 
-    private Boolean IsDeuce(){
+    private Boolean hasWinner(){
+        return playerOneIsWinner() || playerTwoIsWinner();
+    }
+
+    private String winnerPlayerName(){
+        if(playerOneIsWinner())
+            return playerOne.playerName;
+        else
+            return playerTwo.playerName;
+    }
+
+
+    private Boolean isDeuce(){
         return playerOne.pointScore >= 3 && hasEqualPointScore() ;
     }
 
@@ -45,6 +54,17 @@ public class TennisGame
 
     private Boolean playerTwoHasAdvantage(){
         return hasPointScoreMoreThanForty() && playerOne.pointScore < playerTwo.pointScore ;
+    }
+
+    private Boolean hasAdvantage(){
+         return playerOneHasAdvantage() || playerTwoHasAdvantage();
+    }
+
+    private String advantagePlayerName() {
+        if(playerOneHasAdvantage())
+            return playerOne.playerName;
+        else
+            return playerTwo.playerName;
     }
 
     private Boolean hasEqualPointScore(){

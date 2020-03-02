@@ -4,5 +4,8 @@ public enum TennisPoints{
     Love,
     Fifteen,
     Thirty,
-    Forty
+    Forty,
+    Deuce,
+    Advantage,
+    Wins
 }
