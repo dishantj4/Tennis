@@ -12,8 +12,10 @@ public class TennisGame
     }
 
     public String getScore() {
-        if(hasWinner() )
+        if(playerOneIsWinner() )
             return "Player One Wins";
+        if(playerTwoIsWinner() )
+            return "Player Two Wins";
         if(IsDeuce())
             return "Deuce";
         if(hasAdvantage() )
@@ -23,8 +25,12 @@ public class TennisGame
         return translateScore(playerOne.pointScore) + " " + translateScore(playerTwo.pointScore);
     }
 
-    private Boolean hasWinner(){
+    private Boolean playerOneIsWinner(){
         return hasPointScoreMoreThanForty() && playerOne.pointScore > playerTwo.pointScore + 1;
+    }
+
+    private Boolean playerTwoIsWinner(){
+        return hasPointScoreMoreThanForty() && playerTwo.pointScore > playerOne.pointScore + 1;
     }
 
     private Boolean IsDeuce(){
@@ -40,7 +46,7 @@ public class TennisGame
     }
 
     private Boolean hasPointScoreMoreThanForty(){
-        return playerOne.pointScore > 3 ;
+        return playerOne.pointScore > 3 || playerTwo.pointScore > 3 ;
     }
 
     private TennisPoints translateScore(int pointScore) {

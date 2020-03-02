@@ -60,4 +60,11 @@ public class TennisGameTest
         assertEquals("Player One Advantage",game.getScore());
     }
 
+    @Test
+    public void ShouldReturnGameScoreAsPlayerTwoWinsWhenPlayerTwoWins4AndPlayerTwoWins2Points()
+    {
+        playerOne.pointScore =2;
+        playerTwo.pointScore =4;
+        assertEquals("Player Two Wins",game.getScore());
+    }
 }
