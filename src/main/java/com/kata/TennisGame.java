@@ -3,8 +3,8 @@ package com.kata;
 public class TennisGame
 {
 
-    Player playerOne;
-    Player playerTwo;
+    private Player playerOne;
+    private Player playerTwo;
 
     public TennisGame(Player playerOne, Player playerTwo) {
         this.playerOne = playerOne;

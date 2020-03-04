@@ -9,9 +9,9 @@ import org.junit.Test;
 
 public class TennisGameTest
 {
-    Player playerOne;
-    Player playerTwo;
-    TennisGame game;
+    private Player playerOne;
+    private Player playerTwo;
+    private TennisGame game;
 
     @Before
     public void init() {
